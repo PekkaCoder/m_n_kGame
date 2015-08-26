@@ -14,7 +14,7 @@ public:
 
 inline DrawVariables::~DrawVariables()
 {
-	std::cout << "DrawVariables::~DrawVariables";
+
 }
 
 class Render
