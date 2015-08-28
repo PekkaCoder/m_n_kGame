@@ -11,17 +11,19 @@ class Engine
 {
 public:
 	// winRowLenght: how many (one sides) pieces in a row is a win
-	void setParameters(Render* renderer, int rows, int cols, int winRowLenght) noexcept(false);
+	void setParameters(Render* renderer, int rows, int cols, 
+		int winRowLenght) noexcept(false);
 	void newGame();
-	const Board& getBoard() const { return m_board; }
-	Board& setBoard() { return m_board; }
+	const Board& getBoard() const;
+	Board& setBoard();
 	bool makeNextMove(const Coordinate& square) noexcept(false);
-	// checks if there is a win; if there is then saves the info about it to m_gameOverInfo
+	// checks if there is a win; if there is then saves the info about 
+	// it to m_gameOverInfo
 	bool isWin();
-	GameState getGameState() const { return m_gameState; }
-	PosInfo getGameOverInfo() { return m_gameOverInfo; }
-	const std::vector<Coordinate>& getMoveHistory() const { return m_moveHistory; }
-	int getWinRowLenght() const { return m_winRowLenght; }
+	GameState getGameState() const;
+	PosInfo getGameOverInfo();
+	const std::vector<Coordinate>& getMoveHistory() const;
+	int getWinRowLenght() const;
 
 private:
 	GameState m_gameState = GameState::READY_TO_START;
@@ -32,6 +34,36 @@ private:
 	int m_winRowLenght = 3;	// how many needed in a row to win
 	std::vector<Coordinate> m_moveHistory;
 };
+
+inline const Board& Engine::getBoard() const 
+{ 
+	return m_board; 
+}
+
+inline Board& Engine::setBoard()
+{ 
+	return m_board; 
+}
+
+inline GameState Engine::getGameState() const
+{ 
+	return m_gameState; 
+}
+
+inline PosInfo Engine::getGameOverInfo()
+{ 
+	return m_gameOverInfo; 
+}
+
+inline const std::vector<Coordinate>& Engine::getMoveHistory() const
+{
+	return m_moveHistory;
+}
+
+inline int Engine::getWinRowLenght() const
+{ 
+	return m_winRowLenght; 
+}
 
 }
 
