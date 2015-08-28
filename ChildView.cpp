@@ -157,7 +157,7 @@ int CChildView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 		m_mfcHandler2.setParameters(60, CPoint(500, 20));
 		m_engine2.setParameters(&m_mfcHandler2, 5, 4, 3);
-		m_engine.newGame();
+		m_engine2.newGame();
 	}
 	catch (...)
 	{

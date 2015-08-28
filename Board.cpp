@@ -3,6 +3,7 @@
 namespace mnkgame
 {
 
+// Exception safety: vector can throw an exception when resizing
 void Board::setBoardSize(int rows, int cols, bool emptyBoard)
 {
 	if (rows == getRows() && cols == getCols())

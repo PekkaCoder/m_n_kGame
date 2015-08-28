@@ -19,7 +19,7 @@ public:
 		bool emptyBoard = true) noexcept(false);
 	void empty(); // empties the board
 	// returns the piece (value) on a certain square
-	Player getSquareValue(const Coordinate& square) const;
+	Player getSquareValue(const Coordinate& square) const noexcept(false);
 	// sets a piece (or empty) on a square 
 	void setSquareValue(const Coordinate& square, Player player);
 	// is square inside the board (a valid square coordinate)
@@ -45,6 +45,7 @@ inline const std::vector<std::vector<Player>>& Board::getPosition() const
 	return m_position;
 }
 
+// Exception safety: vector can throw an exception if invalid square
 inline Player Board::getSquareValue(const Coordinate& square) const
 {
 	assert(isValid(square));
